@@ -1,8 +1,9 @@
 import Head from "next/head";
 import styled from "styled-components";
-import { Button, Grid, Item, TextField } from "@mui/material";
+import { Button, Grid, TextField } from "@mui/material";
 import ForwardToInboxOutlinedIcon from '@mui/icons-material/ForwardToInboxOutlined';
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
 	return (
@@ -124,9 +125,7 @@ const HeroButton = styled(Button)`
 `;
 
 const HeroTextField = styled(TextField)`
-	&& {
-		width: 100%;
-	}
+	width: 100%;
 `;
 
 const HeroBlockItem = styled.div`
@@ -144,11 +143,11 @@ const HeroBlock = styled.div`
 	color: ${({ theme }) => theme.colors.white};
 	transition: all 0.2s ease-in-out;
 	border-radius: 2.5rem;
-	&:hover {
+	:hover {
 		background-color: ${({ theme }) => theme.colors.offWhite};
 		background: linear-gradient(90deg, rgba(246,244,243,1) 0%, rgba(255,255,255,1) 69%, rgba(255,255,255,1) 100%);
 	}
-	&:active {
+	:active {
 		background-color: ${({ theme }) => theme.colors.offWhite};
 		background: linear-gradient(90deg, rgba(246,244,243,1) 0%, rgba(255,255,255,1) 69%, rgba(255,255,255,1) 100%);
 	}
@@ -187,7 +186,7 @@ const HeroItem = styled.div`
 	.anim {
 		display: none;
 	}
-	&:hover {
+	:hover {
 		.anim {
 			cursor: pointer;
 			display: block;
