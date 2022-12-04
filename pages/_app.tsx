@@ -12,6 +12,8 @@ const theme = {
 		salsa: "#F03A47",
 		white: "#FFFFFF",
 		offWhite: "#F6F4F3",
+		black: "#1B1B1E",
+		characol: "#3E4C5E",
 	},
 };
 

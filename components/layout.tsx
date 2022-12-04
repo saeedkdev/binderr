@@ -11,5 +11,4 @@ export default function Layout({ children }) {
 }
 
 const BodyComponent = styled.div`
-	background-color: ${(props) => props.theme.colors.cultured};
 `;
