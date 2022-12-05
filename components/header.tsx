@@ -12,7 +12,7 @@ export default function Header() {
 			</Logo>
 			<NavLinks>
 				<Link href="/">Home</Link>
-				<Link href="/how">How it works?</Link>
+				<Link href="#features">Features</Link>
 				<Link href="/about">About</Link>
 				<Link href="/contact">Contact</Link>
 			</NavLinks>
@@ -31,6 +31,14 @@ const Navbar = styled.div`
 	width: 100%;
 	padding: 1rem 2rem;
 	background-color: ${(props) => props.theme.colors.white};
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	@media (max-width: 768px) {
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+	}
 `;
 
 // logo with styled-components
@@ -46,6 +54,9 @@ const NavLinks = styled.div`
 	align-items: center;
 	margin: 0 15%;
 	color: ${(props) => props.theme.colors.spaceCadet};
+	@media (max-width: 480px) {
+		display: none;
+	}
 `;
 
 const UserActions = styled.div`
@@ -54,6 +65,9 @@ const UserActions = styled.div`
 	justify-content: space-evenly;
 	align-items: center;
 	grid-gap: 2.5rem;
+	@media (max-width: 480px) {
+		grid-template-columns: 1fr;
+	}
 `;
 
 const LoginButton = styled(Button)`

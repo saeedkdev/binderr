@@ -4,6 +4,8 @@ import { Button, Grid, TextField } from "@mui/material";
 import ForwardToInboxOutlinedIcon from '@mui/icons-material/ForwardToInboxOutlined';
 import Image from "next/image";
 import Link from "next/link";
+import Features from "../components/features";
+import Modules from "../components/modules";
 
 export default function Home() {
 	return (
@@ -113,12 +115,36 @@ export default function Home() {
 							</HeroBlockItem>
 						</HeroBlock>
 					</RightGrid>
+					<WaitlistGrid item xs={12}>
+						<h1>Join the waitlist to be the first one to know when we launch</h1>
+					</WaitlistGrid>
 				</MainGrid>
 			</Main>
+			<RestOfPage>
+				<Features/>
+				<Modules/>
+			</RestOfPage>
 		</div>
 	);
 }
 
+const WaitlistGrid = styled(Grid)`
+	@media (max-width: 1280px) {
+		display: none;
+	}
+	h1 {
+		width: 100%;
+		color: ${({ theme }) => theme.colors.characol};
+	}
+`;
+
+const RestOfPage = styled.div`
+	width: 85%;
+	margin: 0 auto;
+	@media (max-width: 1280px) {
+		width: 90%;
+	}
+`;
 
 const RightGrid = styled(Grid)`
 	padding: 2rem;
@@ -157,7 +183,7 @@ const HeroBlock = styled.div`
 	grid-gap: 1rem;
 	padding: 2rem;
 	@media (max-width: 1280px) {
-		padding: 1rem;
+		padding: 2rem;
 	}
 	color: ${({ theme }) => theme.colors.white};
 	transition: all 0.2s ease-in-out;
@@ -190,15 +216,24 @@ const HeroSlogan = styled.p`
 	@media (max-width: 1280px) {
 		font-size: 1.25rem;
 	}
+	@media (max-width: 768px) {
+		width: 100%;
+	}
 	color: ${(props) => props.theme.colors.characol};
 `;
 
 const Main = styled.main`
 	width: 100%;
+	background: url("/bg.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	height: 100vh;
 	@media (max-width: 1280px) {
 		width: 90%;
 	}
-	margin: 0 auto;
+	margin: 2.5rem auto;
 `;
 
 const Hero = styled.div`
@@ -209,9 +244,14 @@ const Hero = styled.div`
 	grid-gap: 1rem;
 	margin: 3rem 0;
 	padding: 1rem 0;
-	max-height: 80vh;
 	justify-items: center;
 	border-radius: 1rem;
+	@media (max-width: 768px) {
+		padding: 0;
+		grid-gap: 0;
+		width: 90%;
+		margin: 0 auto;
+	}
 `;
 
 const HeroItem = styled.div`
