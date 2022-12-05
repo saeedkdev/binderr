@@ -17,8 +17,8 @@ export default function Home() {
 				<link rel="icon" href="/favicon.png" />
 			</Head>
 			<Main>
-				<Grid container spacing={{ xs: 2, md: 6, lg: 10 }}>
-					<Grid item xs={12} md={6} lg={4}>
+				<MainGrid container justifyContent="center" alignItems="center">
+					<Grid item xs={12} md={6} lg={3}>
 						<Hero>
 							<HeroItem>
 								<Image
@@ -82,7 +82,7 @@ export default function Home() {
 							</HeroItem>
 						</Hero>
 					</Grid>
-					<Grid item xs={12} md={6} lg={8}>
+					<RightGrid item xs={12} md={6} lg={9}>
 						<HeroHeader>
 							All in one <b>business</b> software
 						</HeroHeader>
@@ -112,12 +112,28 @@ export default function Home() {
 								</HeroButton>
 							</HeroBlockItem>
 						</HeroBlock>
-					</Grid>
-				</Grid>
+					</RightGrid>
+				</MainGrid>
 			</Main>
 		</div>
 	);
 }
+
+
+const RightGrid = styled(Grid)`
+	padding: 2rem;
+	@media (max-width: 1280px) {
+		padding: 3rem;
+	}
+`;
+
+const MainGrid = styled(Grid)`
+	width: 85%;
+	margin: 0 auto;
+	@media (max-width: 1280px) {
+		width: 100%;
+	}
+`;
 
 const HeroButton = styled(Button)`
 	border-radius: 2.5rem;
@@ -140,6 +156,9 @@ const HeroBlock = styled.div`
 	grid-template-columns: 1fr auto;
 	grid-gap: 1rem;
 	padding: 2rem;
+	@media (max-width: 1280px) {
+		padding: 1rem;
+	}
 	color: ${({ theme }) => theme.colors.white};
 	transition: all 0.2s ease-in-out;
 	border-radius: 2.5rem;
@@ -155,18 +174,31 @@ const HeroBlock = styled.div`
 
 const HeroHeader = styled.p`
 	font-size: 3.5rem;
+	@media (max-width: 768px) {
+		font-size: 2.5rem;
+	}
+	@media (max-width: 1280px) {
+		font-size: 2.5rem;
+	}
 	color: ${(props) => props.theme.colors.characol};
-	margin: 5rem 0 0.5rem 0;
+	margin: 1rem 0 0.5rem 0;
 `;
 
 const HeroSlogan = styled.p`
 	width: 75%;
 	font-size: 1.5rem;
+	@media (max-width: 1280px) {
+		font-size: 1.25rem;
+	}
 	color: ${(props) => props.theme.colors.characol};
 `;
 
 const Main = styled.main`
-	margin: 0 2rem;
+	width: 100%;
+	@media (max-width: 1280px) {
+		width: 90%;
+	}
+	margin: 0 auto;
 `;
 
 const Hero = styled.div`
@@ -194,6 +226,12 @@ const HeroItem = styled.div`
 		> img {
 			cursor: pointer;
 			display: none;
+		}
+	}
+	@media (max-width: 1300px) {
+		img {
+			width: 150px;
+			height: 150px;
 		}
 	}
 `;
